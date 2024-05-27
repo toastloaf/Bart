@@ -84,49 +84,52 @@
 // animate();
 
 import * as THREE from 'three';
-import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader.js';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader';
+import { TextureLoader } from 'three';
 
+// Scene Setup
 const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
-
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 const renderer = new THREE.WebGLRenderer();
-renderer.setSize( window.innerWidth, window.innerHeight );
-document.body.appendChild( renderer.domElement );
+renderer.setSize(window.innerWidth, window.innerHeight);
+document.body.appendChild(renderer.domElement);
 
-// Create an instance of FBXLoader and TextureLoader.
-const loader = new FBXLoader();
-const textureLoader = new THREE.TextureLoader();
+// Camera and Controls
+camera.position.z = -2;
+const controls = new OrbitControls(camera, renderer.domElement);
 
-// Load the FBX file.
-loader.load( './assets/sprite2.fbx', ( model ) => {
-    // Load the texture
-    const texture = textureLoader.load( './assets/sprite_texture.png' );
+// Lighting
+const ambientLight = new THREE.AmbientLight(0x404040); // soft white light
+scene.add(ambientLight);
+const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
+scene.add(directionalLight);
 
-    // Set the texture of the model.
-    model.traverse( function ( child ) {
-    if ( child.isMesh ) {
-      child.material.map = texture;
-    }
+// Loaders
+const fbxLoader = new FBXLoader();
+const textureLoader = new TextureLoader();
+
+// Load the FBX Model and Texture
+fbxLoader.load('assets/sprit2.fbx', (object) => {
+    object.traverse((child) => {
+        if (child.isMesh) {
+            textureLoader.load('assets/sprit_texture.png', (texture) => {
+                child.material.map = texture;
+                child.material.needsUpdate = true;
+            });
+        }
     });
 
-    model.scale.set(1, 1, 1);
+    object.scale.set(0.005, 0.005, 0.005);
 
-    // Add the model to the scene.
-    scene.add( model );
-
-    // Create a point light.
-    const light = new THREE.PointLight(0xffffff, 1, 1000);
-    light.position.set(0, 0, 100); // Position the light.
-
-    // Add the light to the scene.
-    scene.add(light);
+    scene.add(object);
 });
 
-camera.position.z = 30;
-
+// Animation Loop
 function animate() {
-  requestAnimationFrame( animate );
-  renderer.render( scene, camera );
+    requestAnimationFrame(animate);
+    scene.rotation.y += 0.005; // Adjust rotation speed as needed
+    controls.update();
+    renderer.render(scene, camera);
 }
-
 animate();
