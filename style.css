@@ -19,6 +19,13 @@ h2 {
 	padding-left: 2.5em;
 }
 
+#sprit-can {
+    position: fixed;
+    left: 20%;
+    top: 0%;
+    width: 50px;
+    height: 50px;
+}
 h4 {
 	color: white;
 	font-size: 20pt;
@@ -28,4 +35,3 @@ h4 {
 .Sprit_Logo {
 	margin-bottom: -1em;
 	margin-left: 72%;
-}
