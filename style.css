@@ -1,3 +1,14 @@
 body {
 	background-color: #EC2F57;
+	margin: 0;
+}
+
+nav {
+	background-color: white;
+	padding: 20px;
+}
+
+h1 {
+	display: inline;
+	padding-right: 53px;
 }
