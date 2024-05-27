@@ -26,3 +26,12 @@ h2 {
     width: 50px;
     height: 50px;
 }
+h4 {
+	color: white;
+	font-size: 20pt;
+	padding-left: 7.5em;
+}
+
+.Sprit_Logo {
+	margin-bottom: -1em;
+	margin-left: 72%;
