@@ -6,6 +6,7 @@ body {
 nav {
 	background-color: white;
 	padding: 1em;
+	display: flex;
 }
 
 h1 {
@@ -33,5 +34,4 @@ h4 {
 }
 
 .Sprit_Logo {
-	margin-bottom: -1em;
 	margin-left: 72%;
