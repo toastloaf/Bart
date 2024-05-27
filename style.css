@@ -5,10 +5,16 @@ body {
 
 nav {
 	background-color: white;
-	padding: 20px;
+	padding: 1em;
 }
 
 h1 {
 	display: inline;
 	padding-right: 53px;
+}
+
+h2 {
+	color: white;
+	font-size: 60pt;
+	padding-left: 2.5em;
 }
