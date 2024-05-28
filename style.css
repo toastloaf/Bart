@@ -10,6 +10,7 @@ nav {
 	padding-top: 0px;
 	display: flex;
 	box-shadow: #2e2e2ed5 0px 0px 20px;
+	height: 50px;
 }
 
 h1 {
@@ -22,8 +23,8 @@ h1 {
 h2 {
 	color: white;
 	font-size: 100pt;
-	padding-left: 1em;
-	margin-top: 0;
+	padding-left: 1.5em;
+	margin-top: 50px;
 	font-family: "Lexend", sans-serif;
 	font-weight: 500;
 }
@@ -38,14 +39,16 @@ h2 {
 
 h4 {
 	color: white;
-	font-size: 20pt;
+	font-size: 25pt;
 	padding-left: 7em;
 	font-family: Ubuntu;
-	line-height: 1.8em;
+	line-height: 0;
+	margin-top: -70px;
 }
 
 .Sprit_Logo {
 	margin-left: 72%;
+	height: 40px;
 }
 
 button {

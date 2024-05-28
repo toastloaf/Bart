@@ -43035,9 +43035,11 @@ const renderer = new WebGLRenderer({ alpha: true, canvas: canvas }); // Use the 
 renderer.setSize(window.innerWidth, window.innerHeight);
 
 // Camera and Controls
-camera.position.z = -2;
+camera.position.z = -4;
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.enableZoom = false; // Disable zoom
+
+camera.setFocalLength(5);
 
 // Lighting
 const ambientLight = new AmbientLight(0xf2a2b3, 3); // soft white light
@@ -43060,7 +43062,7 @@ fbxLoader.load('assets/sprit2.fbx', (object) => {
         }
     });
 
-    object.scale.set(0.005, 0.005, 0.005);
+    object.scale.set(0.02, 0.02, 0.02);
     object.position.set(0, 0.4, 0);
 
     object.rotation.set(0.1, 0, 0);
