@@ -49,7 +49,7 @@ fbxLoader.load('assets/sprit2.fbx', (object) => {
 // Animation Loop
 function animate() {
     requestAnimationFrame(animate);
-    //scene.rotation.y += 0.009; // Adjust rotation speed as needed
+    //scene.rotation.y += -0.2; // Adjust rotation speed as needed
     let object = scene.children[2];
     //object.rotation.y += 0.01;
     //object.rotation.x += 0.4;
