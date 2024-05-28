@@ -9,11 +9,13 @@ nav {
 	padding-bottom: 0px;
 	padding-top: 0px;
 	display: flex;
+	align-items: center;
 	box-shadow: #2e2e2ed5 0px 0px 20px;
 }
 
 h1 {
 	display: inline;
+	white-space: nowrap;
 	padding-right: 33px;
 	font-family: Ubuntu;
 	font-size: 16pt;
@@ -45,7 +47,8 @@ h4 {
 }
 
 .Sprit_Logo {
-	margin-left: 72%;
+	margin-left: auto;
+	padding: 0.6em;
 }
 
 button {
