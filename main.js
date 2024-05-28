@@ -1,6 +1,6 @@
 import * as THREE from 'three';
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
-import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader.js';
 import { TextureLoader } from 'three';
 
 // Get a reference to the existing canvas element
@@ -18,9 +18,9 @@ const controls = new OrbitControls(camera, renderer.domElement);
 controls.enableZoom = false; // Disable zoom
 
 // Lighting
-const ambientLight = new THREE.AmbientLight(0x404040); // soft white light
+const ambientLight = new THREE.AmbientLight(0xf2a2b3, 3); // soft white light
 scene.add(ambientLight);
-const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
+const directionalLight = new THREE.DirectionalLight(0xf2aebd, 5);
 scene.add(directionalLight);
 
 // Loaders
@@ -49,11 +49,14 @@ fbxLoader.load('assets/sprit2.fbx', (object) => {
 // Animation Loop
 function animate() {
     requestAnimationFrame(animate);
-    scene.rotation.y += 0.009; // Adjust rotation speed as needed
+    //scene.rotation.y += 0.009; // Adjust rotation speed as needed
     let object = scene.children[2];
-    object.rotation.y += 0.3;
-    object.rotation.x += 0.4;
-    object.rotation.z += 0.2;
+    //object.rotation.y += 0.01;
+    //object.rotation.x += 0.4;
+    //object.rotation.z += 0.01;
+    let axis = new THREE.Vector3(0.15, 1, 0); // Change the values as needed
+        let angle = 0.02; // The rotation angle in radians
+        object.rotateOnAxis(axis, angle);
     controls.update();
     renderer.render(scene, camera);
 }
