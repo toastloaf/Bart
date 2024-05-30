@@ -41,7 +41,7 @@ fbxLoader.load('assets/sprit2.fbx', (object) => {
     });
 
     object.scale.set(0.02, 0.02, 0.02);
-    object.position.set(0, 0.4, 0);
+    object.position.set(0, 1, 0);
 
     object.rotation.set(0.1, 0, 0);
 
